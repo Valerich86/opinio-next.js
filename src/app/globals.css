@@ -24,3 +24,23 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.bg-primary {
+  @apply bg-zinc-100;
+}
+
+.bg-secondary {
+  @apply bg-zinc-900;
+}
+
+.bg-accent {
+  @apply bg-orange-500;
+}
+
+.bg-create {
+  @apply bg-green-500;
+}
+
+.dark-container {
+  @apply absolute top-0 left-0 w-screen min-h-screen bg-zinc-900 opacity-60;
+}
