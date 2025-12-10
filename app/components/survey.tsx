@@ -36,11 +36,8 @@ export default function CompleteSurvey({
   useEffect(() => {
     if (!id || questions.length > 0) return;
     getResponseData();
-    const sessionId = localStorage.getItem("survey_session_id");
-    if (!sessionId) {
-      const newSessionId = crypto.randomUUID();
-      localStorage.setItem("survey_session_id", newSessionId);
-    }
+    const newSessionId = crypto.randomUUID();
+    localStorage.setItem("survey_session_id", newSessionId);
   }, [id, questions.length]);
 
   async function getResponseData() {
@@ -175,7 +172,7 @@ export default function CompleteSurvey({
           surveyId: id,
         }),
       });
-      if (response.ok) router.replace("/profile");
+      if (response.ok) router.back();
     } catch (error) {
       console.error(error);
     } finally {
@@ -270,10 +267,6 @@ export default function CompleteSurvey({
               <FaSpinner className="animate-spin" size={20} color="white" />
             )}
           </button>
-          <p>
-            Спасибо за участие! Ваши ответы помогут лучше понять зрительские
-            предпочтения.
-          </p>
         </form>
       )}
     </>

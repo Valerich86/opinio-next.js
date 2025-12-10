@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
+import { ImStatsBars } from "react-icons/im"; 
 import { MdOutlineUnpublished } from "react-icons/md";
 import { FaSpinner } from "react-icons/fa";
 import { useState, useEffect } from "react";
@@ -81,7 +82,7 @@ export default function SurveysList({userId}:{userId?:string}) {
               href={`/surveys/${item.id}`}
               className="rounded-md py-2 w-[220px] text-sm text-light hover:opacity-70 bg-neutral active:scale-99 active:transition active:duration-100 font-semibold flex gap-2 justify-center items-center cursor-pointer"
             >
-              <MdOutlineUnpublished size={20} />
+              <ImStatsBars size={17}/>
               {`${isLoading ? "" : "Статистика"}`}
               {isLoading && (
                 <FaSpinner className="animate-spin" size={20} color="white" />

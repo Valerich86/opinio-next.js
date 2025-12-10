@@ -91,7 +91,7 @@ export default function SurveyProgress({ id }: { id: string }) {
             className="hover:opacity-80 cursor-pointer"
             onClick={() => openQuestionModal(item.id)}
           >
-            <BsPencilFill className="text-neutral" />
+            <BsPencilFill className="text-red-300" />
           </div>
           <div
             className="hover:opacity-80 cursor-pointer"
@@ -141,7 +141,7 @@ export default function SurveyProgress({ id }: { id: string }) {
           className="hover:opacity-80 cursor-pointer"
           onClick={openSurveyModal}
         >
-          <BsPencilFill className="text-neutral" />
+          <BsPencilFill className="text-red-300" />
         </div>
         <div className="hover:opacity-80 cursor-pointer" onClick={dropSurvey}>
           <MdDeleteForever className="text-red-500" size={22} />

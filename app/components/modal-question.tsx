@@ -183,7 +183,7 @@ export default function QuestionUpdateModal({
                   className="hover:opacity-80 cursor-pointer"
                   onClick={() => deleteAnswer(index)}
                 >
-                  <MdDeleteForever className="text-red-700" size={22} />
+                  <MdDeleteForever className="text-red-500" size={22} />
                 </div>
               </div>
             ))}

@@ -110,7 +110,7 @@ const QuestionItem: React.FC<QuestionItemProps> = React.memo(
         {item.type === "Свободный ответ" && (
           <input
             type="text"
-            className="w-full rounded-md border border-gray-300 p-2 text-sm bg-white focus-input"
+            className="w-full md:w-1/2 rounded-md border border-gray-300 p-2 text-sm bg-white focus-input"
             value={answer.single_value}
             required
             onChange={handleSingleChange}

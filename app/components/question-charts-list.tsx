@@ -32,33 +32,41 @@ export default function ChartsList({ id }: { id: string }) {
         setTotalVotes(totalVotes);
         setQuestionsData(data);
       }
-      console.log(data)
+      console.log(data);
     } catch (error) {
       console.error(error);
     }
   }
 
   if (questionsData[0]?.options.length === 0)
-    return <div className="w-full text-center">Статистики по вопросам еще нет...</div>;
+    return (
+      <div className="w-full text-center">
+        Статистики по вопросам еще нет...
+      </div>
+    );
 
   return (
     <>
-    <strong>Статистика ответов на вопросы:</strong>
-      <ul className="flex flex-wrap justify-between items-center w-full gap-y-20">
-      {questionsData.map((item: QuestionData, index) => (
-        <motion.li
-          key={index}
-          variants={itemVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }} // анимация только при первом появлении, 10% элемента в зоне видимости
-          transition={{ delay: index * 0.1 }} // небольшая задержка для каждого следующего элемента
-          className="w-full xl:w-[45%] flex justify-center items-center"
-        >
-          <ChartItem data={item} />
-        </motion.li>
-      ))}
-    </ul>
+      {totalVotes > 0 && (
+        <>
+          <strong>Статистика ответов на вопросы:</strong>
+          <ul className="flex flex-wrap justify-between items-center w-full gap-y-20">
+            {questionsData.map((item: QuestionData, index) => (
+              <motion.li
+                key={index}
+                variants={itemVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.1 }} // анимация только при первом появлении, 10% элемента в зоне видимости
+                transition={{ delay: index * 0.1 }} // небольшая задержка для каждого следующего элемента
+                className="w-full xl:w-[45%] flex justify-center items-center"
+              >
+                <ChartItem data={item} sortOrder={index+1}/>
+              </motion.li>
+            ))}
+          </ul>
+        </>
+      )}
     </>
   );
 }
