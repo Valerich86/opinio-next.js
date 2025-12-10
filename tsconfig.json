@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-, "tailwind.config.tsx", "tailwind.config.tsx", "app/api/tables/route.ts", "app/components/question-chart-item.tsx"  ],
+, "tailwind.config.tsx", "tailwind.config.tsx", "src/app/api/tables/route.ts", "src/components/question-chart-item.tsx"  ],
   "exclude": ["node_modules"]
 }
