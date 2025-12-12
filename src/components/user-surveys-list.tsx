@@ -80,7 +80,9 @@ export default function SurveysList({userId}:{userId?:string}) {
             </p>
             <Link
               href={`/surveys/${item.id}`}
-              className="rounded-md py-2 w-[220px] text-sm text-light hover:opacity-70 bg-neutral active:scale-99 active:transition active:duration-100 font-semibold flex gap-2 justify-center items-center cursor-pointer"
+              className="rounded-md py-2 w-[220px] text-sm text-light hover:opacity-70 
+              bg-neutral active:scale-99 active:transition active:duration-100 
+              font-semibold flex gap-2 justify-center items-center cursor-pointer"
             >
               <ImStatsBars size={17}/>
               {`${isLoading ? "" : "Статистика"}`}
@@ -90,7 +92,10 @@ export default function SurveysList({userId}:{userId?:string}) {
             </Link>
             <button
               onClick={handleSubmitPublish}
-              className="rounded-md border border-red-500 py-2 w-[220px] text-sm text-red-500 hover:opacity-70 active:scale-99 active:transition active:duration-100 font-semibold flex gap-2 justify-center items-center cursor-pointer"
+              className="rounded-md border border-red-500 py-2 w-[220px] text-sm
+              text-red-500 hover:opacity-70 active:scale-99 active:transition 
+              active:duration-100 font-semibold flex gap-2 justify-center 
+              items-center cursor-pointer"
               disabled={isLoading}
             >
               <MdOutlineUnpublished size={20} />

@@ -4,9 +4,9 @@ import { FormEvent, useState } from "react";
 import {
   RegistrationFormErrors,
   RegistrationFormData,
-} from "../lib/definitions";
+} from "@/src/lib/definitions";
 import { redirect } from "next/navigation";
-import FormError from "./UI/form-error";
+import FormError from "../UI/form-error";
 
 export default function RegisterForm() {
   const [form, setForm] = useState<RegistrationFormData>({

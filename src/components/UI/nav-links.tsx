@@ -19,12 +19,17 @@ const links = [
 export default function NavLinks() {
   const pathName = usePathname();
 
+  function openMenu () {
+    console.log("menu is opened")
+  }
+
   return (
     <>
       <div className="flex lg:hidden justify-center items-center w-full">
-        <GiHamburgerMenu className="block md:hidden" size={30}/>
+        <GiHamburgerMenu className="block" size={30} onClick={openMenu}/>
       </div>
-      <div className="hidden md:flex gap-10">
+
+      <div className="hidden lg:flex gap-10">
         {links.map((link) => {
           const LinkIcon = link.icon;
           return (

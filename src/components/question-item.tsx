@@ -20,6 +20,8 @@ const QuestionItem: React.FC<QuestionItemProps> = React.memo(
 
     const [hover, setHover] = useState<number | null>(null);
 
+    const ratingMax = 5;
+
     const handleMultipleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const value = e.target.value;
       const checked = e.target.checked;
@@ -142,7 +144,7 @@ const QuestionItem: React.FC<QuestionItemProps> = React.memo(
         {/* шкала оценок */}
         {item.type === "Шкала оценок" && (
           <div className="flex items-center space-x-1">
-            {[...Array(5)].map((_, index) => {
+            {[...Array(ratingMax)].map((_, index) => {
               const ratingValue = index + 1;
               const isFilled = ratingValue <= (hover !== null ? hover : answer.rating_value);
 
@@ -156,7 +158,7 @@ const QuestionItem: React.FC<QuestionItemProps> = React.memo(
                   onClick={() => handleRatingChange(ratingValue)}
                   onMouseEnter={() => setHover(ratingValue)}
                   onMouseLeave={() => setHover(null)}
-                  aria-label={`Поставить оценку ${ratingValue} из ${5}`}
+                  aria-label={`Поставить оценку ${ratingValue} из ${ratingMax}`}
                 >
                   ★
                 </button>
@@ -164,10 +166,11 @@ const QuestionItem: React.FC<QuestionItemProps> = React.memo(
             })}
             <input type="hidden" value={answer.rating_value} />
             <span className="ml-2 text-sm text-gray-600">
-              {answer.rating_value} из {5}
+              {answer.rating_value} из {ratingMax}
             </span>
           </div>
         )}
+        
       </div>
     );
   }

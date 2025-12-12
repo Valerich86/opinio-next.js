@@ -20,10 +20,15 @@ export default function RootLayout({
       <body
         className={`${bodyFont.className} antialiased bg-primary overflow-x-hidden`}
       >
+        {/* шапка  */}
         <Header />
+
+        {/* декоративный элемент */}
         <div className="w-screen h-screen fixed -z-20 overflow-hidden">
           <div className="w-[120%] h-full bg-secondary absolute -rotate-45 -z-10 translate-x-1/4"></div>
         </div>
+
+        {/* зона контента */}
         {children}
       </body>
     </html>

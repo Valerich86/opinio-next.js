@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { EnterLink } from "../components/buttons";
+import { EnterLink } from "../components/UI/buttons";
 import { headlineFont } from "../lib/fonts";
 import { Metadata } from "next";
 

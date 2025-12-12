@@ -11,8 +11,6 @@ export const metadata: Metadata = {
 };
 
 export default async function Surveys() {
-  // const user = await verifySession();
-  // if (!user) redirect("/login");
 
   return (
     <>

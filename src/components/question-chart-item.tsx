@@ -53,14 +53,22 @@ const Colors = [
   "rgba(255, 159, 64, 0.7)",
 ];
 
-export function ChartItem({ data, sortOrder }: { data: QuestionData, sortOrder: number }) {
+export function ChartItem({
+  data,
+  sortOrder,
+}: {
+  data: QuestionData;
+  sortOrder: number;
+}) {
   const [chartData, setChartData] = useState<ChartData>({
     labels: [],
     datasets: [],
   });
 
   useEffect(() => {
-    const labels = data.options.map((item) => item.value.substring(0, 30)+"...");
+    const labels = data.options.map(
+      (item) => item.value.substring(0, 30) + "..."
+    );
     const values = data.options.map((item) => item.votes);
     const colors = data.options.map((item, index) =>
       Colors[index] ? Colors[index] : Colors[index - Colors.length]
@@ -80,14 +88,16 @@ export function ChartItem({ data, sortOrder }: { data: QuestionData, sortOrder: 
   }, []);
 
   return (
-    <div className="w-full h-[50vh] p-3 rounded-2xl border border-[#090C9B] bg-primary shadow-blue-400 shadow-2xl/20">
-      <h2>{sortOrder}. {data.text}</h2>
+    <div className="w-full h-[50vh] p-3 rounded-2xl border 
+    border-[#090C9B] bg-primary shadow-blue-400 shadow-2xl/20">
+      <h2>
+        {sortOrder}. {data.text}
+      </h2>
       <Bar
         data={chartData}
         options={{
           indexAxis: "y",
           responsive: true,
-          // maintainAspectRatio: false,
           plugins: {
             legend: { position: "top" as const },
             title: { display: true, text: data.type },

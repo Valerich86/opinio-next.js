@@ -1,15 +1,9 @@
 "use server";
 
-import { success, z } from "zod";
-import postgres from "postgres";
-import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
 import { pool } from "../../../../lib/db";
-import { AuthError } from "next-auth";
 import bcrypt from "bcryptjs";
 import { User } from "../../../../lib/definitions";
 import { createSessionToken } from '@/src/lib/auth';
-import { NextRequest } from 'next/server';
 
 async function checkAvailability(
   email: string,

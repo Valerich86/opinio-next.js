@@ -1,5 +1,3 @@
-import { NextRequest } from 'next/server';
-
 export async function POST() {
   return new Response(
     JSON.stringify({ success: true, message: 'Выход выполнен' }),

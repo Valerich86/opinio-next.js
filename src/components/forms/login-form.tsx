@@ -2,8 +2,8 @@
 
 import { FormEvent, useState } from "react";
 import { redirect } from "next/navigation";
-import { LoginError, LoginFormData } from "../lib/definitions";
-import FormError from "./UI/form-error";
+import { LoginError, LoginFormData } from "@/src/lib/definitions";
+import FormError from "../UI/form-error";
 
 export default function LoginForm() {
   const [error, setError] = useState<LoginError | undefined>(undefined);

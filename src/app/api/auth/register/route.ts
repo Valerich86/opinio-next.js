@@ -6,6 +6,7 @@ import bcrypt from "bcryptjs";
 import { createSessionToken } from "@/src/lib/auth";
 import { NextResponse } from "next/server";
 
+// проверка логина
 async function checkEmailAvailability(email: string): Promise<Boolean> {
   try {
     const data = await pool.query(`SELECT * FROM users WHERE email=$1`, [
@@ -17,6 +18,7 @@ async function checkEmailAvailability(email: string): Promise<Boolean> {
   }
 }
 
+// валидация формы регистрации с помощью zod
 const RegistrationFormSchema = z
   .object({
     email: z.email("Некорректный email").refine(
@@ -65,14 +67,18 @@ export async function POST(req: Request, res: Response) {
       [body.email]
     );
     const user = response.rows[0];
+    
+    // установка файла cookie
     const token = await createSessionToken(user.id, user.email);
     return new Response(JSON.stringify({ success: true }), {
       status: 200,
       headers: {
-        "Set-Cookie": `session=${token}; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=604800`,
+        "Set-Cookie": `session=${token}; Path=/; HttpOnly; 
+         Secure; SameSite=Strict; Max-Age=86400`,
         "Content-Type": "application/json",
       },
     });
+
   } catch (error) {
     return NextResponse.json({ status: 500 });
   }

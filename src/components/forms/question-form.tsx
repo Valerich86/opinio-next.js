@@ -2,8 +2,8 @@
 
 import { BiAddToQueue } from "react-icons/bi";
 import { FormEvent, useState } from "react";
-import { QuestionTypes, QuestionDefinitions } from "../lib/constants";
-import { Question } from "../lib/definitions";
+import { QuestionTypes, QuestionDefinitions } from "@/src/lib/constants";
+import { Question } from "@/src/lib/definitions";
 import { MdDeleteForever } from "react-icons/md";
 
 export default function QuestionForm({ id }: { id: string }) {
@@ -70,14 +70,16 @@ export default function QuestionForm({ id }: { id: string }) {
     <form
       onSubmit={handleSubmit}
       onReset={handleClear}
-      className={`mt-3 py-10 px-5 rounded-xl bg-primary border-[#3066BE] shadow-[#3066BE] shadow-2xl w-[90%] md:w-1/2 flex flex-col gap-5`}
+      className={`mt-3 py-10 px-5 rounded-xl bg-primary border-[#3066BE] 
+        shadow-[#3066BE] shadow-2xl w-[90%] md:w-1/2 flex flex-col gap-5`}
     >
       <fieldset>
         <label htmlFor="text" className="italic text-sm">
           Текст вопроса
         </label>
         <input
-          className="w-full rounded-md h-10 border-none p-2 text-sm bg-white placeholder:opacity-90 focus-input"
+          className="w-full rounded-md h-10 border-none p-2 text-sm 
+          bg-white placeholder:opacity-90 focus-input"
           id="text"
           autoFocus
           required
@@ -93,7 +95,8 @@ export default function QuestionForm({ id }: { id: string }) {
             Порядковый номер
           </label>
           <input
-            className="w-full rounded-md h-10 border-none p-2 text-sm bg-white placeholder:opacity-90 focus-input"
+            className="w-full rounded-md h-10 border-none p-2 text-sm 
+            bg-white placeholder:opacity-90 focus-input"
             id="sortOrder"
             type="number"
             step="1"
@@ -110,7 +113,8 @@ export default function QuestionForm({ id }: { id: string }) {
             Тип вопроса
           </label>
           <select
-            className="w-full rounded-md h-10 border-none p-2 text-sm bg-white focus-input"
+            className="w-full rounded-md h-10 border-none p-2 text-sm 
+            bg-white focus-input"
             id="type"
             value={currentType}
             onChange={(e) => {
@@ -144,7 +148,8 @@ export default function QuestionForm({ id }: { id: string }) {
                 className="w-full flex justify-between items-center"
               >
                 <input
-                  className="w-[90%] rounded-md h-10 border-none p-2 text-sm bg-white text-zinc-600 focus-input"
+                  className="w-[90%] rounded-md h-10 border-none p-2 
+                  text-sm bg-white text-zinc-600 focus-input"
                   value={item}
                   onChange={(e) => changeAnswer(e.target.value, index)}
                 />
@@ -158,7 +163,9 @@ export default function QuestionForm({ id }: { id: string }) {
             ))}
             <div
               onClick={addAnswer}
-              className="w-full h-10 gap-2 hover:opacity-80 cursor-pointer border border-zinc-400 rounded-sm flex justify-center items-center  text-zinc-600"
+              className="w-full h-10 gap-2 hover:opacity-80 cursor-pointer 
+              border border-zinc-400 rounded-sm flex justify-center 
+              items-center  text-zinc-600"
             >
               <BiAddToQueue className="text-neutral" size={20} />
               <p>ещё вариант</p>
@@ -167,15 +174,18 @@ export default function QuestionForm({ id }: { id: string }) {
         </fieldset>
       )}
 
-      <div className="w-full mt-5 md:flex md:flex-row flex-col justify-between items-center">
+      <div className="w-full mt-5 md:flex md:flex-row flex-col 
+      justify-between items-center">
         <button
           type="reset"
-          className="md:px-5 w-full md:w-auto rounded-md border border-zinc-400 h-10 hover:opacity-70 cursor-pointer text-sm"
+          className="md:px-5 w-full md:w-auto rounded-md border border-zinc-400 
+          h-10 hover:opacity-70 cursor-pointer text-sm"
         >
           Сбросить
         </button>
         <input
-          className="mt-2 md:mt-0 md:px-5 w-full md:w-auto rounded-md bg-accent text-white h-10 hover:opacity-85 cursor-pointer text-sm"
+          className="mt-2 md:mt-0 md:px-5 w-full md:w-auto rounded-md bg-accent
+           text-white h-10 hover:opacity-85 cursor-pointer text-sm"
           type="submit"
           value={isLoading ? "Сохранение..." : "Сохранить и продолжить"}
         />

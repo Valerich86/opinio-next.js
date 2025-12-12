@@ -1,4 +1,4 @@
-import SurveyForm from "../../components/survey-form";
+import SurveyForm from "@/src/components/forms/survey-form";
 import { Metadata } from "next";
 import { verifySession } from "../../lib/auth";
 import { redirect } from "next/navigation";

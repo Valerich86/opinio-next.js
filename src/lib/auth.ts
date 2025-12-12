@@ -7,7 +7,7 @@ const alg = "HS256";
 export async function createSessionToken(userId: string, email: string) {
   return new SignJWT({ userId, email })
     .setProtectedHeader({ alg })
-    .setExpirationTime("7d")
+    .setExpirationTime("1d")
     .sign(secretKey);
 }
 

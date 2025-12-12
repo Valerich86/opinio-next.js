@@ -2,8 +2,8 @@
 
 import { FormEvent, useState, useContext } from "react";
 import { useRouter } from "next/navigation";
-import { SurveyError, User } from "../lib/definitions";
-import FormError from "./UI/form-error";
+import { SurveyError, User } from "@/src/lib/definitions";
+import FormError from "../UI/form-error";
 
 export default function SurveyForm({userId}:{userId:string}) {
   const [error, setError] = useState<SurveyError | undefined>(undefined);

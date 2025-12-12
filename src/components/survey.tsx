@@ -157,7 +157,6 @@ export default function CompleteSurvey({
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          survey_id: id,
           session_id: localStorage.getItem("survey_session_id"),
           event: "completed",
           total_time: totalTime,
@@ -172,7 +171,7 @@ export default function CompleteSurvey({
           surveyId: id,
         }),
       });
-      if (response.ok) router.back();
+      if (response.ok) router.replace("/surveys");
     } catch (error) {
       console.error(error);
     } finally {
@@ -226,7 +225,7 @@ export default function CompleteSurvey({
           onSubmit={handleSubmit}
           className={`w-full flex flex-col gap-7 p-10`}
         >
-          <h1 className="text-3xl font-extrabold text-accent text-center">
+          <h1 className="text-3xl font-extrabold text-primary text-center">
             Опрос: "{survey?.title}"
           </h1>
           <motion.ul

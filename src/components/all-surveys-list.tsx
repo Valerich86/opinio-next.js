@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { headlineFont } from "../lib/fonts";
-import { EnterLink } from "./buttons";
+import { EnterLink } from "./UI/buttons";
 
 interface Survey {
   survey_id: string;
